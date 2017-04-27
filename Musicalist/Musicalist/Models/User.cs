@@ -11,7 +11,8 @@ namespace Musicalist.Models
     {
         public User()
         {
-            Compras = new HashSet<Compras>();
+           Compras = new HashSet<Compras>();
+           Contacto = new HashSet<Contacto>();
         }
 
 
@@ -28,11 +29,12 @@ namespace Musicalist.Models
         [Required]
         [Column(TypeName = "date")]
         public DateTime? DataNasc { get; set; }
-        
-        [Column(TypeName = "date")]
-        private string Tipo { get; set; }
+                
+        public string Tipo { get; set; }
 
         // especificar que um User faz muitas Compras
         public ICollection<Compras> Compras { get; set; }
+
+        public ICollection<Contacto> Contacto { get; set; }
     }
 }

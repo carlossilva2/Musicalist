@@ -7,24 +7,23 @@ using System.Web;
 
 namespace Musicalist.Models
 {
-    public class Compras
+    public class Contacto
     {
-        public Compras()
+        public Contacto()
         {
             
         }
-
-
         [Key]
-        public int ComprasID { get; set; }
+        public int contactoID { get; set; }
 
         [Required]
-        public string Conteudo { set; get; }
+        public int numero { get; set; }
 
+        public string decricao { get; set; }
 
         // **************************
         // criar a chave forasteira
-        // relaciona o objeto Compras com um objeto User
+        // relaciona o objeto Contacto com um objeto User
         public User User { get; set; }
 
         // cria um atributo para funcionar como FK, na BD
@@ -33,3 +32,4 @@ namespace Musicalist.Models
         public int UserFK { get; set; }
     }
 }
+    
