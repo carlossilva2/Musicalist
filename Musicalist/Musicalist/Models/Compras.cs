@@ -11,7 +11,7 @@ namespace Musicalist.Models
     {
         public Compras()
         {
-            
+            ComprasProdutos = new HashSet<ComprasProdutos>();
         }
 
 
@@ -31,5 +31,7 @@ namespace Musicalist.Models
         // e relaciona-o com o atributo anterior
         [ForeignKey("User")]
         public int UserFK { get; set; }
+
+        public ICollection<ComprasProdutos> ComprasProdutos { get; set; }
     }
 }
