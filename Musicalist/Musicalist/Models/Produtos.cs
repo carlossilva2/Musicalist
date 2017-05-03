@@ -17,13 +17,22 @@ namespace Musicalist.Models
         public int ProdutosID { get; set; }
 
         [Required]
+        public bool eUnico { get; set; }
+
+        [Required]
+        public int Stock { get; set; }
+
+        [Required]
+        public int Preco { get; set; }
+
+        [Required]
         public string Nome { get; set; }
 
         [Required]
-        public bool e_unico { get; set; }
+        public string Fabricante { get; set; }
 
         [Required]
-        public int stock { get; set; }
+        public string Tipo { get; set; }
 
         public ICollection<ComprasProdutos> ComprasProdutos { get; set; }
     }

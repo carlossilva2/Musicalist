@@ -21,6 +21,15 @@ namespace Musicalist.Models
         [Required]
         public string Conteudo { set; get; }
 
+        [Required]
+        [Column(TypeName = "date")]
+        public DateTime? DataCompra { get; set; }
+
+        [Required]
+        public string MoradaFatura { get; set; }
+
+        [Required]
+        public string MoradaEntrega { get; set; }
 
         // **************************
         // criar a chave forasteira

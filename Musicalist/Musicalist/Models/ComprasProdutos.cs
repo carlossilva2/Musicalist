@@ -13,7 +13,7 @@ namespace Musicalist.Models
         public int ID { get; set; }
 
         [Required]
-        public int preco { get; set; }
+        public int Preco { get; set; }
 
         [ForeignKey("ComprasFK")]
         public Compras C { get; set; }
