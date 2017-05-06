@@ -48,7 +48,7 @@ namespace Musicalist.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ComprasID,Conteudo,UserFK")] Compras compras)
+        public ActionResult Create([Bind(Include = "ComprasID,Conteudo,DataCompra,RuaEntreg,CidadeEntreg,PostalEntreg,PaisEntreg,EntregEFatur,RuaFatur,CidadeFatur,PostalFatur,PaisFatur,UserFK")] Compras compras)
         {
             if (compras.EntregEFatur)
             {
@@ -97,7 +97,7 @@ namespace Musicalist.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ComprasID,Conteudo,UserFK")] Compras compras)
+        public ActionResult Edit([Bind(Include = "ComprasID,Conteudo,DataCompra,RuaEntreg,CidadeEntreg,PostalEntreg,PaisEntreg,EntregEFatur,RuaFatur,CidadeFatur,PostalFatur,PaisFatur,UserFK")] Compras compras)
         {
             if (ModelState.IsValid)
             {
