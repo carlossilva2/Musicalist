@@ -16,6 +16,7 @@ namespace Musicalist.Models
 
 
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ComprasID { get; set; }
 
         [Required]
@@ -24,14 +25,40 @@ namespace Musicalist.Models
         [Required]
         [Column(TypeName = "date")]
         public DateTime? DataCompra { get; set; }
+        //*****************************************
+        //Morada de Entrega
+        [Required]
+        public string RuaEntreg { get; set; }
 
         [Required]
-        public string MoradaFatura { get; set; }
+        public string CidadeEntreg { get; set; }
 
         [Required]
-        public string MoradaEntrega { get; set; }
+        public string PostalEntreg { get; set; }
 
-        // **************************
+        [Required]
+        public string PaisEntreg { get; set; }
+
+        //*****************************************
+        //Verificacao se a Morada de Entrega é a mesma que a Faturacao
+        public bool EntregEFatur { get; set; }
+
+        //*****************************************
+        //Morada de Faturação
+        [Required]
+        public string RuaFatur { get; set; }
+
+        [Required]
+        public string CidadeFatur { get; set; }
+
+        [Required]
+        public string PostalFatur { get; set; }
+
+        [Required]
+        public string PaisFatur { get; set; }
+        
+
+        //*****************************************
         // criar a chave forasteira
         // relaciona o objeto Compras com um objeto User
         public User User { get; set; }

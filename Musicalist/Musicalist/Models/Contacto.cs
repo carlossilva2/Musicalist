@@ -17,9 +17,9 @@ namespace Musicalist.Models
         public int contactoID { get; set; }
 
         [Required]
-        public int numero { get; set; }
+        public int Numero { get; set; }
 
-        public string decricao { get; set; }
+        public string Decricao { get; set; }
 
         // **************************
         // criar a chave forasteira

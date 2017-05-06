@@ -50,6 +50,21 @@ namespace Musicalist.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ComprasID,Conteudo,UserFK")] Compras compras)
         {
+            if (compras.EntregEFatur)
+            {
+                compras.PaisFatur = compras.PaisFatur;
+                compras.RuaFatur = compras.RuaEntreg;
+                compras.PostalFatur = compras.PostalEntreg;
+                compras.CidadeFatur = compras.CidadeEntreg;
+            }
+            else
+            {
+                compras.PaisFatur = "";
+                compras.RuaFatur = "";
+                compras.PostalFatur = "";
+                compras.CidadeFatur = "";
+            }
+
             if (ModelState.IsValid)
             {
                 db.Compras.Add(compras);

@@ -17,6 +17,7 @@ namespace Musicalist.Models
 
 
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int UserID { get; set; }
 
         [Required]
