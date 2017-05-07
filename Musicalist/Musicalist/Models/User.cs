@@ -24,11 +24,21 @@ namespace Musicalist.Models
         public string Nome { set; get; }
 
         [Required]
+        //[Index(IsUnique = true)]
+        public string Username { get; set; }
+
+        [Required]
+        [MaxLength(30, ErrorMessage = "{0} must be 30 characters or less"), MinLength(8, ErrorMessage = "{0} must be 8 characters or more")]
+        public string Password { get; set; }
+        
+        [Required]
         [Column(TypeName = "date")]
+        [Display(Name = "Data de Inscrição")]
         public DateTime? DataInsc { get; set; }
 
         [Required]
         [Column(TypeName = "date")]
+        [Display(Name = "Data de Nascimento")]
         public DateTime? DataNasc { get; set; }
                 
         public string Tipo { get; set; }

@@ -22,14 +22,14 @@ namespace Musicalist.Migrations
             // ############################################################################################
             // adiciona Users
             var user = new List<User> {
-               new User  {UserID = 1, Nome = "Miguel Dantas", DataInsc = new DateTime(2017,03,31), DataNasc= new DateTime(1996,04,10), Tipo="Registado" },
-               new User  {UserID = 2, Nome = "Rúben Pimentel", DataInsc =  new DateTime(2016,01,05), DataNasc = new DateTime(1987,05,09), Tipo="Registado" },
-               new User  {UserID = 3, Nome = "Carlos Silva", DataInsc =  new DateTime(2016,01,01), DataNasc = new DateTime(1996,04,10), Tipo="Administrador" },
-               new User  {UserID = 4, Nome = "Lourenço Bandeira", DataInsc =  new DateTime(2016,01,01), DataNasc = new DateTime(1968,09,08), Tipo="Administrador" },
-               new User  {UserID = 5, Nome = "António Abreu", DataInsc =  new DateTime(2016,11,22), DataNasc = new DateTime(1991,07,15), Tipo="Registado" },
-               new User  {UserID = 6, Nome = "César Lima", DataInsc =  new DateTime(2016,07,19), DataNasc = new DateTime(1980,01,10), Tipo="Registado" },
-               new User  {UserID = 7, Nome = "Ânia Freitas", DataInsc =  new DateTime(2017,02,15), DataNasc = new DateTime(1988,10,01), Tipo="Registado" },
-               new User  {UserID = 8, Nome = "Vicente Venâncio", DataInsc =  new DateTime(2017,01,20), DataNasc = new DateTime(1977,04,21), Tipo="Registado" }
+               new User  {UserID = 1, Nome = "Miguel Dantas", Username = "MDantas", Password = "12345678", DataInsc = new DateTime(2017,03,31), DataNasc= new DateTime(1996,04,10), Tipo="Registado" },
+               new User  {UserID = 2, Nome = "Rúben Pimentel", Username = "RPimentel", Password = "12345678", DataInsc =  new DateTime(2016,01,05), DataNasc = new DateTime(1987,05,09), Tipo="Registado" },
+               new User  {UserID = 3, Nome = "Carlos Silva", Username = "CMSilva", Password = "12345678", DataInsc =  new DateTime(2016,01,01), DataNasc = new DateTime(1996,04,10), Tipo="Administrador" },
+               new User  {UserID = 4, Nome = "Lourenço Bandeira", Username = "LBandeira", Password = "12345678", DataInsc =  new DateTime(2016,01,01), DataNasc = new DateTime(1968,09,08), Tipo="Administrador" },
+               new User  {UserID = 5, Nome = "António Abreu", Username = "AAbreu", Password = "12345678", DataInsc =  new DateTime(2016,11,22), DataNasc = new DateTime(1991,07,15), Tipo="Registado" },
+               new User  {UserID = 6, Nome = "César Lima", Username = "CLima", Password = "12345678", DataInsc =  new DateTime(2016,07,19), DataNasc = new DateTime(1980,01,10), Tipo="Registado" },
+               new User  {UserID = 7, Nome = "Ânia Freitas", Username = "AFreitas", Password = "12345678", DataInsc =  new DateTime(2017,02,15), DataNasc = new DateTime(1988,10,01), Tipo="Registado" },
+               new User  {UserID = 8, Nome = "Vicente Venâncio", Username = "VVen", Password = "12345678", DataInsc =  new DateTime(2017,01,20), DataNasc = new DateTime(1977,04,21), Tipo="Registado" }
             };
 
             user.ForEach(dd => context.User.AddOrUpdate(d => d.Nome, dd));

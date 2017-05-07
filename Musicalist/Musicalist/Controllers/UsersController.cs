@@ -46,7 +46,7 @@ namespace Musicalist.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserID,Nome,DataInsc,DataNasc,Tipo")] User user)
+        public ActionResult Create([Bind(Include = "UserID,Nome,Username,Password,DataInsc,DataNasc,Tipo")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace Musicalist.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserID,Nome,DataInsc,DataNasc,Tipo")] User user)
+        public ActionResult Edit([Bind(Include = "UserID,Nome,Username,Password,DataInsc,DataNasc,Tipo")] User user)
         {
             if (ModelState.IsValid)
             {

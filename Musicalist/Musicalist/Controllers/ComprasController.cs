@@ -50,21 +50,42 @@ namespace Musicalist.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ComprasID,Conteudo,DataCompra,RuaEntreg,CidadeEntreg,PostalEntreg,PaisEntreg,EntregEFatur,RuaFatur,CidadeFatur,PostalFatur,PaisFatur,UserFK")] Compras compras)
         {
-            if (compras.EntregEFatur)
+            try
             {
-                compras.PaisFatur = compras.PaisFatur;
-                compras.RuaFatur = compras.RuaEntreg;
-                compras.PostalFatur = compras.PostalEntreg;
-                compras.CidadeFatur = compras.CidadeEntreg;
+                if (compras.EntregEFatur)
+                {
+                    compras.PaisFatur = compras.PaisFatur;
+                    compras.RuaFatur = compras.RuaEntreg;
+                    compras.PostalFatur = compras.PostalEntreg;
+                    compras.CidadeFatur = compras.CidadeEntreg;
+                }
+                else
+                {
+                    compras.PaisFatur = "";
+                    compras.RuaFatur = "";
+                    compras.PostalFatur = "";
+                    compras.CidadeFatur = "";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                compras.PaisFatur = "";
-                compras.RuaFatur = "";
-                compras.PostalFatur = "";
-                compras.CidadeFatur = "";
+                ModelState.AddModelError("", string.Format("An error as occured {0}", ex.Message));
+                throw;
+            }
+            
+            int novoID = 0;
+            try
+            {
+                novoID = db.Compras.Max(d => d.ComprasID) + 1;
+            }
+            catch (Exception)
+            {
+                novoID = 1;
+                throw;
             }
 
+
+            compras.ComprasID = novoID;
             if (ModelState.IsValid)
             {
                 db.Compras.Add(compras);
