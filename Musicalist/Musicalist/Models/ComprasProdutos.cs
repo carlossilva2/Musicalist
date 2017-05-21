@@ -14,6 +14,9 @@ namespace Musicalist.Models
 
         [Required]
         public int Preco { get; set; }
+        
+        [Required]
+        public int NProdutos { get; set; }
 
         [ForeignKey("ComprasFK")]
         public Compras C { get; set; }

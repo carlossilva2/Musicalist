@@ -46,6 +46,6 @@ namespace Musicalist.Models
         // especificar que um User faz muitas Compras
         public ICollection<Compras> Compras { get; set; }
 
-        public ICollection<Contacto> Contacto { get; set; }
+        public virtual ICollection<Contacto> Contacto { get; set; }
     }
 }

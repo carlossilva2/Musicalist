@@ -12,6 +12,7 @@ namespace Musicalist.Models
         public Produtos()
         {
             ComprasProdutos = new HashSet<ComprasProdutos>();
+            Imagem = new HashSet<Imagem>();
         }
 
         [Key]
@@ -36,6 +37,8 @@ namespace Musicalist.Models
         [Required]
         public string Tipo { get; set; }
 
-        public ICollection<ComprasProdutos> ComprasProdutos { get; set; }
+        public virtual ICollection<ComprasProdutos> ComprasProdutos { get; set; }
+
+        public virtual ICollection<Imagem> Imagem { get; set; }
     }
 }

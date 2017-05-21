@@ -50,7 +50,7 @@ namespace Musicalist.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ComprasID,Conteudo,DataCompra,RuaEntreg,CidadeEntreg,PostalEntreg,PaisEntreg,EntregEFatur,RuaFatur,CidadeFatur,PostalFatur,PaisFatur,UserFK")] Compras compras)
         {
-            try
+           /* try
             {
                 if (compras.EntregEFatur)
                 {
@@ -71,7 +71,7 @@ namespace Musicalist.Controllers
             {
                 ModelState.AddModelError("", string.Format("An error as occured {0}", ex.Message));
                 throw;
-            }
+            }*/
             
             int novoID = 0;
             try

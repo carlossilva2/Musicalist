@@ -20,9 +20,6 @@ namespace Musicalist.Models
         public int ComprasID { get; set; }
 
         [Required]
-        public string Conteudo { set; get; }
-
-        [Required]
         [Column(TypeName = "date")]
         public DateTime? DataCompra { get; set; }
         //*****************************************
@@ -38,10 +35,6 @@ namespace Musicalist.Models
 
         [Required]
         public string PaisEntreg { get; set; }
-
-        //*****************************************
-        //Verificacao se a Morada de Entrega é a mesma que a Faturacao
-        public bool EntregEFatur { get; set; }
 
         //*****************************************
         //Morada de Faturação
@@ -68,6 +61,6 @@ namespace Musicalist.Models
         [ForeignKey("User")]
         public int UserFK { get; set; }
 
-        public ICollection<ComprasProdutos> ComprasProdutos { get; set; }
+        public virtual ICollection<ComprasProdutos> ComprasProdutos { get; set; }
     }
 }

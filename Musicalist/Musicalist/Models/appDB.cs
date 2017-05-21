@@ -15,6 +15,7 @@ namespace Musicalist.Models
         public virtual DbSet<Produtos> Produtos { get; set; }
         public virtual DbSet<Contacto> Contacto { get; set; }
         public virtual DbSet<ComprasProdutos> ComprasProdutos { get; set; }
+        public virtual DbSet<Imagem> Imagem { get; set; }
 
 
         //especificar onde sera criada a base de dados

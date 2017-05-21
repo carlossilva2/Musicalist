@@ -38,13 +38,13 @@ namespace Musicalist.Migrations
             // ############################################################################################
             // adiciona Compras
             var compra = new List<Compras> {
-               new Compras  {ComprasID = 1, Conteudo = "Fender Standard Strat MN AWT + Ibanez Paul Stanley PS1CM", DataCompra  =  new DateTime(2017,05,06),RuaEntreg = "Rua 123", RuaFatur="Rua 123", CidadeEntreg="Imagina", CidadeFatur="Imagina", PostalEntreg="0000-001", PostalFatur="0000-001", PaisEntreg="CDF", PaisFatur="CDF", UserFK=3},
-               new Compras  {ComprasID = 2, Conteudo = "Epiphone SG G-400 Pro EB", DataCompra  =  new DateTime(2017,05,06),RuaEntreg = "Rua 123", RuaFatur="Rua 123", CidadeEntreg="Imagina", CidadeFatur="Imagina", PostalEntreg="0000-001", PostalFatur="0000-001", PaisEntreg="CDF", PaisFatur="CDF", UserFK=1 },
-               new Compras  {ComprasID = 3, Conteudo = "Harley Benton Victory Flames Classic Series", DataCompra  =  new DateTime(2017,05,01),RuaEntreg = "Rua 123", RuaFatur="Rua 123", CidadeEntreg="Imagina", CidadeFatur="Imagina", PostalEntreg="0000-001", PostalFatur="0000-001", PaisEntreg="CDF", PaisFatur="CDF", UserFK=1},
-               new Compras  {ComprasID = 4, Conteudo = "Gibson Les Paul Custom EB GH", DataCompra  =  new DateTime(2017,04,25), RuaEntreg = "Rua 123", RuaFatur="Rua 123", CidadeEntreg="Imagina", CidadeFatur="Imagina", PostalEntreg="0000-001", PostalFatur="0000-001", PaisEntreg="CDF", PaisFatur="CDF", UserFK=6}
+               new Compras  {ComprasID = 1, DataCompra  =  new DateTime(2017,05,06),RuaEntreg = "Rua 123", RuaFatur="Rua 123", CidadeEntreg="Imagina", CidadeFatur="Imagina", PostalEntreg="0000-001", PostalFatur="0000-001", PaisEntreg="CDF", PaisFatur="CDF", UserFK=3},
+               new Compras  {ComprasID = 2, DataCompra  =  new DateTime(2017,05,06),RuaEntreg = "Rua 123", RuaFatur="Rua 123", CidadeEntreg="Imagina", CidadeFatur="Imagina", PostalEntreg="0000-001", PostalFatur="0000-001", PaisEntreg="CDF", PaisFatur="CDF", UserFK=1 },
+               new Compras  {ComprasID = 3, DataCompra  =  new DateTime(2017,05,01),RuaEntreg = "Rua 123", RuaFatur="Rua 123", CidadeEntreg="Imagina", CidadeFatur="Imagina", PostalEntreg="0000-001", PostalFatur="0000-001", PaisEntreg="CDF", PaisFatur="CDF", UserFK=1},
+               new Compras  {ComprasID = 4, DataCompra  =  new DateTime(2017,04,25), RuaEntreg = "Rua 123", RuaFatur="Rua 123", CidadeEntreg="Imagina", CidadeFatur="Imagina", PostalEntreg="0000-001", PostalFatur="0000-001", PaisEntreg="CDF", PaisFatur="CDF", UserFK=6}
             };
 
-            compra.ForEach(dd => context.Compras.AddOrUpdate(d => d.Conteudo, dd));
+            compra.ForEach(dd => context.Compras.AddOrUpdate(d => d.ComprasID, dd));
             context.SaveChanges();
 
             // ############################################################################################
@@ -78,6 +78,35 @@ namespace Musicalist.Migrations
             };
 
             produtos.ForEach(dd => context.Produtos.AddOrUpdate(d => d.Nome, dd));
+            context.SaveChanges();
+
+            // ############################################################################################
+            // adiciona ComprasProdutos
+            var compProdutos = new List<ComprasProdutos> {
+               new ComprasProdutos  {ComprasFK=1,ProdutosFK=1,Preco=7654,NProdutos=2},
+               new ComprasProdutos  {ComprasFK=1,ProdutosFK=3,Preco=7654,NProdutos=2},
+               new ComprasProdutos  {ComprasFK=2,ProdutosFK=5,Preco=295,NProdutos=1},
+               new ComprasProdutos  {ComprasFK=3,ProdutosFK=4,Preco=139,NProdutos=1},
+               new ComprasProdutos  {ComprasFK=4,ProdutosFK=7,Preco=3299,NProdutos=1}
+            };
+
+            compProdutos.ForEach(dd => context.ComprasProdutos.AddOrUpdate(d => d.ComprasFK, dd));
+            context.SaveChanges();
+
+            // ############################################################################################
+            // adiciona Imagens
+            var imagens = new List<Imagem> {
+               new Imagem  {Image="Imagem1", ProdutosFK=1},
+               new Imagem  {Image="Imagem2", ProdutosFK=2},
+               new Imagem  {Image="Imagem3", ProdutosFK=3},
+               new Imagem  {Image="Imagem4", ProdutosFK=4},
+               new Imagem  {Image="Imagem5", ProdutosFK=5},
+               new Imagem  {Image="Imagem6", ProdutosFK=6},
+               new Imagem  {Image="Imagem7", ProdutosFK=7},
+               new Imagem  {Image="Imagem8", ProdutosFK=8},
+            };
+
+            imagens.ForEach(dd => context.Imagem.AddOrUpdate(d => d.Image, dd));
             context.SaveChanges();
         }
     }

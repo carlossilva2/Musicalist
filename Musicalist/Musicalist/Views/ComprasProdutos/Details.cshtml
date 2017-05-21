@@ -1,0 +1,50 @@
+﻿@model Musicalist.Models.ComprasProdutos
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ComprasProdutos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.C.Conteudo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.C.Conteudo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.P.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.P.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Preco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Preco)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NProdutos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NProdutos)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
