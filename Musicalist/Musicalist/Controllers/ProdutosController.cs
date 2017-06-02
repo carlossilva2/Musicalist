@@ -10,10 +10,11 @@ using Musicalist.Models;
 
 namespace Musicalist.Controllers
 {
+    [Authorize]
     public class ProdutosController : Controller
     {
         private appDB db = new appDB();
-
+        [AllowAnonymous]
         // GET: Produtos
         public ActionResult Index()
         {

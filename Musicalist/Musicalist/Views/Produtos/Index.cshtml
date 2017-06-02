@@ -5,10 +5,12 @@
 }
 
 <h2>Produtos</h2>
-
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @if (User.IsInRole("Administrador")){ 
+        @Html.ActionLink("Create New", "Create")
+    }
 </p>
+
 <table class="table">
     <tr>
         <th>
@@ -53,9 +55,14 @@
             @Html.DisplayFor(modelItem => item.Preco)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProdutosID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProdutosID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProdutosID })
+            @if (User.IsInRole("Administrador"))
+            {
+                <div>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ProdutosID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ProdutosID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ProdutosID })
+                </div>
+            }           
         </td>
     </tr>
 }

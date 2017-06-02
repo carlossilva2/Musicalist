@@ -10,6 +10,7 @@ using Musicalist.Models;
 
 namespace Musicalist.Controllers
 {
+    [Authorize]
     public class UsersController : Controller
     {
         private appDB db = new appDB();
